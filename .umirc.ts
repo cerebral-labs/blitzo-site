@@ -97,6 +97,15 @@ export default defineConfig({
   outputPath: "dist",
   // GitHub Pages has no SPA fallback: write an index.html for every route
   exportStatic: {},
+  title: "Blitzo — Small Money. Big Outcomes.",
+  favicons: ["/favicon.png"],
+  links: [{ rel: "apple-touch-icon", href: "/favicon.png" }],
+  metas: [
+    { name: "description", content: "We made money fun." },
+    { property: "og:title", content: "Blitzo — Small Money. Big Outcomes." },
+    { property: "og:description", content: "We made money fun." },
+    { property: "og:image", content: "https://blitzo.xyz/favicon.png" },
+  ],
   esbuildMinifyIIFE: true,
   jsMinifier: "terser", // 将默认的 'esbuild' 改为 'terser'
   extraPostCSSPlugins: [
