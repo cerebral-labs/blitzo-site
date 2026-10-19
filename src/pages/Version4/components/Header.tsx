@@ -13,7 +13,9 @@ export default function () {
         onClick={() => window.location.reload()}
       />
 
-      <img src={x} alt="" />
+      <a href="https://x.com/blitzo" target="_blank" rel="noopener noreferrer">
+        <img src={x} alt="Blitzo on X" />
+      </a>
     </header>
   );
 }

@@ -24,10 +24,10 @@ export default function Footer() {
           <div className="flex flex-col">
             <span className={columnTitleClass}>Company</span>
             <div className="flex flex-col gap-12px">
-              <a href="#" className={linkClass}>
+              <a href="/terms/" className={linkClass}>
                 Terms of Service
               </a>
-              <a href="#" className={linkClass}>
+              <a href="/privacy/" className={linkClass}>
                 Privacy Policy
               </a>
               <a href="#" className={linkClass}>
@@ -41,7 +41,7 @@ export default function Footer() {
             <span className={columnTitleClass}>Socials</span>
             <div className="flex flex-col gap-12px">
               <a
-                href="https://x.com"
+                href="https://x.com/blitzo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={linkClass}
@@ -55,7 +55,7 @@ export default function Footer() {
           <div className="flex flex-col">
             <span className={columnTitleClass}>Help</span>
             <div className="flex flex-col gap-12px">
-              <a href="mailto:support@example.com" className={linkClass}>
+              <a href="mailto:info@blitzo.xyz" className={linkClass}>
                 Support Email
               </a>
             </div>
