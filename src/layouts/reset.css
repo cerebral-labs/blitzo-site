@@ -1,0 +1,209 @@
+/* Tomorrow Font Faces */
+@font-face {
+  font-family: "Tomorrow";
+  src: url("../assets/font/Tomorrow/Tomorrow-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tomorrow";
+  src: url("../assets/font/Tomorrow/Tomorrow-MediumItalic.ttf")
+    format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Jacquard12 Font Face */
+@font-face {
+  font-family: "Jacquard12-Regular";
+  src: url("../assets/font/Jacquard12/Jacquard12-Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* West England Font Face */
+@font-face {
+  font-family: "West_england";
+  src: url("../assets/font/west-england/west-england.regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ABCDiatypeMono-Regular */
+@font-face {
+  font-family: "ABCDiatypeMono-Regular";
+  src: url("../assets/font/ABCDiatypeMono/ABCDiatypeMono-Regular-Trial.otf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Button border pulse animation */
+@keyframes pulse-border {
+  0%,
+  100% {
+    border-color: #cc4d00;
+    opacity: 0.8;
+  }
+  50% {
+    border-color: #ff6100;
+    opacity: 1;
+  }
+}
+
+.animate-pulse-border {
+  animation: pulse-border 3s ease-in-out infinite;
+}
+
+/* 1. 重置所有元素的 `box-sizing` 为 `border-box`，以便边框和内边距不影响元素的宽度和高度 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  /* -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; */
+}
+
+/* 2. 重置基本元素样式 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif; /* 或者指定你自己想要的字体 */
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #fff; /* 设置背景颜色 */
+}
+
+/* 3. 重置标题标签，避免浏览器默认的 margin 和 font-size */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* 4. 重置列表元素 */
+ul,
+ol {
+  list-style: none; /* 移除列表项的默认标记 */
+  padding: 0;
+  margin: 0;
+}
+
+/* 5. 重置链接的样式 */
+a {
+  text-decoration: none; /* 移除链接下划线 */
+  color: inherit; /* 使链接的文字颜色继承父元素 */
+}
+
+/* 6. 重置表单元素的样式 */
+input,
+textarea,
+select,
+button {
+  outline: none; /* 移除焦点的默认轮廓 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; /* 清除系统默认样式 */
+  background: transparent; /* 确保背景透明 */
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+/* 7. 重置图片的默认显示方式 */
+img {
+  display: block; /* 防止图片底部出现空隙 */
+  max-width: 100%; /* 使图片的宽度最大为容器宽度 */
+  height: auto;
+}
+
+/* 8. 设置表格的样式 */
+table {
+  border-collapse: collapse; /* 去掉表格间的间隙 */
+  width: 100%; /* 表格宽度为100% */
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border: none; /* 细边框 */
+}
+
+/* 整个滚动条 - 默认隐藏 */
+::-webkit-scrollbar {
+  width: 5px; /* 初始状态下隐藏 */
+  height: 10px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+/* 当容器被hover时显示滚动条 */
+/* *:hover > ::-webkit-scrollbar {
+  width: 3px;
+  height: 10px;
+  position: absolute;
+  right: 0;
+} */
+
+/* 滚动条轨道 */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  width: 1px;
+  background-color: #eaeaea;
+  border-radius: 10px;
+  visibility: hidden;
+}
+
+:hover::-webkit-scrollbar-thumb {
+  visibility: visible;
+}
+
+/* 滑块hover效果 */
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+video {
+  border: none; /* 去掉边框 */
+  outline: none; /* 去掉点击时的外框 */
+  box-shadow: none; /* 去掉可能的阴影 */
+  background: transparent; /* 透明背景，避免看起来像边框的黑边 */
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+video:focus {
+  outline: -webkit-focus-ring-color auto 0px;
+}

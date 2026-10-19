@@ -1,0 +1,232 @@
+.case-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.replay-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.replay-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(2px);
+}
+
+.animation-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Strict Figma Striped Background */
+.stripes-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #FF6400; 
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(227, 227, 227, 0.08) 3px,
+    rgba(227, 227, 227, 0.08) 10px,
+    transparent 10px,
+    transparent 26px
+  );
+  z-index: 1;
+}
+
+/* -----------------------
+   Animation Sequence 
+   ----------------------- */
+
+/* Container for the morphing element */
+.morph-stage {
+  position: relative;
+  width: 53px;
+  height: 53px;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0.96); /* 再放大两倍，从0.48改为0.96 */
+}
+
+/* 1. Petals (Leaves) */
+.leaf {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 50%; left: 50%;
+  margin-top: -12px; margin-left: -12px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Step 0: Only left petal */
+.step-0 .leaf-top, .step-0 .leaf-bottom, .step-0 .leaf-right {
+  opacity: 0;
+  transform: scale(0);
+}
+.step-0 .leaf-left {
+  opacity: 1;
+  transform: translate(-32px, 0) rotate(180deg);
+}
+
+/* Step 1: Left + Top petals */
+.step-1 .leaf-bottom, .step-1 .leaf-right {
+  opacity: 0;
+  transform: scale(0);
+}
+.step-1 .leaf-left {
+  opacity: 1;
+  transform: translate(-32px, 0) rotate(180deg);
+}
+.step-1 .leaf-top {
+  opacity: 1;
+  transform: translate(0, -32px) rotate(270deg);
+}
+
+/* Step 2: Left + Top + Right petals */
+.step-2 .leaf-bottom {
+  opacity: 0;
+  transform: scale(0);
+}
+.step-2 .leaf-left {
+  opacity: 1;
+  transform: translate(-32px, 0) rotate(180deg);
+}
+.step-2 .leaf-top {
+  opacity: 1;
+  transform: translate(0, -32px) rotate(270deg);
+}
+.step-2 .leaf-right {
+  opacity: 1;
+  transform: translate(32px, 0) rotate(0deg);
+}
+
+/* Step 3: All petals separated */
+.step-3 .leaf-top { transform: translate(0, -32px) rotate(270deg); }
+.step-3 .leaf-bottom { transform: translate(0, 32px) rotate(90deg); }
+.step-3 .leaf-left { transform: translate(-32px, 0) rotate(180deg); }
+.step-3 .leaf-right { transform: translate(32px, 0) rotate(0deg); }
+
+/* Step 4: Touching at Center */
+.step-4 .leaf-top, .step-5 .leaf-top, .step-6 .leaf-top, .step-7 .leaf-top { 
+  transform: translate(0, -17px) rotate(270deg); 
+}
+.step-4 .leaf-bottom, .step-5 .leaf-bottom, .step-6 .leaf-bottom, .step-7 .leaf-bottom { 
+  transform: translate(0, 17px) rotate(90deg); 
+}
+.step-4 .leaf-left, .step-5 .leaf-left, .step-6 .leaf-left, .step-7 .leaf-left { 
+  transform: translate(-17px, 0) rotate(180deg); 
+}
+.step-4 .leaf-right, .step-5 .leaf-right, .step-6 .leaf-right, .step-7 .leaf-right { 
+  transform: translate(17px, 0) rotate(0deg); 
+}
+
+/* Step 5: Fade out petals (Squircle takes over) */
+.step-5 .leaf, .step-6 .leaf, .step-7 .leaf {
+  opacity: 0;
+  transform: scale(0.5); 
+}
+
+/* 2. Squircle (Bloated star) */
+.squircle {
+  position: absolute;
+  width: 45px;
+  height: 47px;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 10;
+}
+
+.step-5 .squircle {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Step 6: Fade out squircle (Solid Stamp takes over) */
+.step-6 .squircle, .step-7 .squircle {
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+
+/* 3. & 4. Stamp Wrapper (Solid Scalloped -> SVG Dollar) */
+.stamp-wrapper {
+  position: absolute;
+  width: 53px;
+  height: 53px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 15;
+}
+
+.step-6 .stamp-wrapper {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.step-7 .stamp-wrapper {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.stamp-svg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+/* This solid SVG blocks the 'hole' of the SVG in Step 3 */
+/* so it looks like a solid white scalloped square */
+.stamp-backdrop {
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  width: 100%;
+  height: 100%;
+  background: none;
+  z-index: 3;
+  transition: opacity 0.25s ease;
+}
+
+/* Step 7: Fade out backdrop to reveal the $ cutout! */
+.step-7 .stamp-backdrop {
+  opacity: 0;
+}
