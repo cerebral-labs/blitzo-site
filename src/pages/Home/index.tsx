@@ -287,10 +287,10 @@ export default function Home() {
       </div>
 
       <div className="flex-center mt-auto pb1px text-14px text-[#adadad] gap-3">
-        {/* <a href="https://x.com/blitzo_xyz" target="_blank" rel="noopener noreferrer">
+        <a href="https://x.com/blitzo_xyz" target="_blank" rel="noopener noreferrer">
           <img src={x} alt="X (Twitter)" className="w20px h20px" />
         </a>
-        <span>·</span> */}
+        <span>·</span>
         <Link to="/terms" className="text-[#adadad]">Terms of Service</Link>
         <span>·</span>
         <span>© 2025 Blitzo</span>

@@ -95,15 +95,8 @@ export default function Terms() {
             </h2>
             <p className="text-gray-800 leading-relaxed">
               <span className="font-semibold">4.1 Service Description.</span>{" "}
-              Blitzo is a mobile app that turns everyday social moments into a
-              fun, competitive game with friends. Our first game, Bumb Bunny,
-              allows users to simply share a link via iMessage with friends and
-              watch the scramble begin. Players race to tap in, play quick skill
-              rounds, compete to claim points and level up. Every Bumb Bunny is a
-              small social moment: part game, part challenge, part bragging
-              rights. Whether you're partying with a group of friends or just
-              looking for a quick burst of fun, Bumb Bunny makes sharing moments
-              more interactive.
+              Blitzo is an e-commerce experience where users can discover new
+              items and compete to win it at a discount.
             </p>
             <p className="text-gray-800 leading-relaxed mt12px">
               <span className="font-semibold">4.2 In-App Balance.</span> The
@@ -115,13 +108,14 @@ export default function Terms() {
               expire Balance at any time without notice or compensation to you.
             </p>
             <p className="text-gray-800 leading-relaxed mt12px">
-              <span className="font-semibold">4.3 Bumb Mechanics.</span> When a
-              user sends a Bumb, they allocate a portion of their Balance to
-              create a reward drop. Recipients may participate in a skill-based
-              game for a chance to earn Balance. All game outcomes are final and
-              determined by the Service. We make no guarantee as to any
-              particular game outcome, reward amount, or availability of Bumbs at
-              any time.
+              <span className="font-semibold">4.3 Deal Mechanics.</span> A user
+              may shop for items and deals on the Blitzo store. A user may
+              compete against other users to bid their In-App Balance for the
+              deal. If the user wins, they will have the right to purchase the
+              item at a predetermined discount. All deal bids outcomes are final
+              and determined by the Service. We make no guarantee as to any
+              particular deal outcome, discount amount, or availability of Deals
+              at any time.
             </p>
             <p className="text-gray-800 leading-relaxed mt12px">
               <span className="font-semibold">
@@ -232,12 +226,11 @@ export default function Terms() {
               services, including authentication providers and wallet
               infrastructure. Your use of such third-party services is governed
               by their respective terms and privacy policies. We are not
-              responsible for the practices or content of any third-party
-              services. The non-custodial wallet associated with your account is
-              generated and managed by a third-party wallet infrastructure
-              provider. We have no control over your wallet or its private keys
-              and are not responsible for any loss arising from your use of that
-              wallet.
+              responsible for the practices or content of any third-party services. The
+              non-custodial wallet associated with your account is generated and
+              managed by a third-party wallet infrastructure provider. We have no
+              control over your wallet or its private keys and are not
+              responsible for any loss arising from your use of that wallet.
             </p>
           </section>
 
@@ -303,9 +296,9 @@ export default function Terms() {
               us at{" "}
               <a
                 className="text-[#FF731C] font-semibold hover:underline"
-                href="mailto:support@playblitzo.com"
+                href="mailto:info@blitzo.xyz"
               >
-                support@playblitzo.com
+                info@blitzo.xyz
               </a>{" "}
               and attempt to resolve any dispute informally for at least 30 days.
             </p>
@@ -359,9 +352,9 @@ export default function Terms() {
               request account deletion by contacting us at{" "}
               <a
                 className="text-[#FF731C] font-semibold hover:underline"
-                href="mailto:support@playblitzo.com"
+                href="mailto:info@blitzo.xyz"
               >
-                support@playblitzo.com
+                info@blitzo.xyz
               </a>
               .
             </p>
@@ -447,53 +440,17 @@ export default function Terms() {
             </div>
           </section>
 
-          <section className="bg-white rounded-20px p-24px md:p-36px mb20px shadow-sm">
-            <h2 className="text-22px md:text-26px font-bold mb14px text-gray-900 border-b-2 border-[#FF731C] pb-10px">
-              16. Refund Policy
-            </h2>
-            <p className="text-gray-800 leading-relaxed">
-              All purchases of digital credits are final and non-refundable once
-              the credits have been delivered to the user's account. Refunds may
-              be issued in cases of technical errors, duplicate transactions, or
-              unauthorized charges if reported promptly. To request a refund,
-              users must contact support within 7 days of the transaction.
-            </p>
-          </section>
-
-          <section className="bg-white rounded-20px p-24px md:p-36px mb20px shadow-sm">
-            <h2 className="text-22px md:text-26px font-bold mb14px text-gray-900 border-b-2 border-[#FF731C] pb-10px">
-              17. Dispute Policy
-            </h2>
-            <p className="text-gray-800 leading-relaxed">
-              If you believe a charge was made in error, please contact our
-              support team before initiating a dispute with your payment
-              provider. We will review and resolve issues as quickly as possible.
-              Initiating a chargeback without contacting support may delay
-              resolution.
-            </p>
-          </section>
-
-          <section className="bg-white rounded-20px p-24px md:p-36px mb20px shadow-sm">
-            <h2 className="text-22px md:text-26px font-bold mb14px text-gray-900 border-b-2 border-[#FF731C] pb-10px">
-              18. Cancellation Policy
-            </h2>
-            <p className="text-gray-800 leading-relaxed">
-              Orders for digital credits cannot be canceled once the transaction
-              is completed and credits have been delivered to the user's account.
-            </p>
-          </section>
-
           <section className="bg-white rounded-20px p-24px md:p-36px mb40px shadow-sm">
             <h2 className="text-22px md:text-26px font-bold mb14px text-gray-900 border-b-2 border-[#FF731C] pb-10px">
-              19. Contact Us
+              16. Contact Us
             </h2>
             <p className="text-gray-800 leading-relaxed">
               Cerebral Labs, Inc. (Blitzo) Email:{" "}
               <a
                 className="text-[#FF731C] font-semibold hover:underline"
-                href="mailto:support@playblitzo.com"
+                href="mailto:info@blitzo.xyz"
               >
-                support@playblitzo.com
+                info@blitzo.xyz
               </a>{" "}
               Mail: 228 Park Ave S PMB 333976, New York, NY 10003-1502
             </p>

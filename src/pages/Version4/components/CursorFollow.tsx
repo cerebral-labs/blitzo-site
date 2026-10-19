@@ -88,11 +88,11 @@ const MouseFollower: React.FC<MouseFollowerProps> = ({ enabled = true, image, wi
     };
 
     document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("touchmove", handleTouchMove, { passive: false });
+    // document.addEventListener("touchmove", handleTouchMove, { passive: false });
 
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("touchmove", handleTouchMove);
+      // document.removeEventListener("touchmove", handleTouchMove);
     };
   }, [enabled]);
 

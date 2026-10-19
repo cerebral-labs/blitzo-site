@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./StampVideo.css";
-import WhiteStamp from "@/assets/version4/CodeBubbyAssets/纯白邮票.svg";
-import TextStamp from "@/assets/version4/CodeBubbyAssets/带字邮票.svg";
+import WhiteStamp from "../../../assets/CodeBubbyAssets/纯白邮票.svg";
+import TextStamp from "../../../assets/CodeBubbyAssets/带字邮票.svg";
 
 const easeOutBounce = (x) => {
   // 0→0.4: 放大到100%
@@ -75,19 +75,8 @@ const StampGrid = ({ animationStep }) => {
       offscreenOrangeRect.height = stampSize * dpr;
       const ctxOrange = offscreenOrangeRect.getContext("2d");
       ctxOrange.scale(dpr, dpr);
-
-      // 绘制橙色背景
       ctxOrange.fillStyle = "#FF6400";
       ctxOrange.fillRect(0, 0, stampSize, stampSize);
-
-      // 添加条纹图案
-      for (let y = 0; y < stampSize; y++) {
-        const mod = y % 26;
-        if (mod >= 3 && mod < 10) {
-          ctxOrange.fillStyle = "rgba(227, 227, 227, 0.08)";
-          ctxOrange.fillRect(0, y, stampSize, 1);
-        }
-      }
 
       const getStateImg = (waveType, x, y) => {
         if (x === 0 && y === 0) return offscreenText;

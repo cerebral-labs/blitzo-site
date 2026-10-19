@@ -297,13 +297,13 @@ export default function RegistryDialog({
               </button>
             </div>
 
-            {/* <div className="flex-center mt37px">
+            <div className="flex-center mt37px">
               <img
                 className="w158px "
                 src={require("@/assets/version2/privivy.png")}
                 alt=""
               />
-            </div> */}
+            </div>
           </div>
         </div>
       </DialogContent>

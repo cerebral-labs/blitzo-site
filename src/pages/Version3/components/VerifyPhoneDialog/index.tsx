@@ -254,13 +254,13 @@ export default function VerifyPhoneDialog({
               </div>
 
               {/* 底部 logo */}
-              {/* <div className="flex-center mt-113px">
+              <div className="flex-center mt-113px">
                 <img
                   className="w158px"
                   src={require("@/assets/version2/privivy.png")}
                   alt="privivy"
                 />
-              </div> */}
+              </div>
             </div>
           </motion.div>
         </>

@@ -1,3 +1,5 @@
+import logo_white from "@/assets/version4/logo_white.png";
+
 export default function Footer() {
   const linkClass =
     "text-white no-underline hover:opacity-80 transition-opacity text-14px leading-relaxed";
@@ -8,9 +10,12 @@ export default function Footer() {
       <div className="max-w-1200px mx-auto px-24px py-48px flex  md:flex-row md:items-start  gap-40px md:gap-84px">
         {/* 左侧品牌 */}
         <div className="flex-shrink-0 ">
-          <span className="text-20px md:text-24px font-bold tracking-tight">
-            Blitzo
-          </span>
+          <img
+            className="h18px md:h32px"
+            src={logo_white}
+            alt=""
+            onClick={() => window.location.reload()}
+          />
         </div>
 
         {/* 右侧导航列 */}

@@ -1,17 +1,28 @@
 import React, { useState, useEffect } from "react";
 import "./StampVideo.css";
-import WhiteStamp from "@/assets/version4/CodeBubbyAssets/纯白邮票.svg";
-import TextStamp from "@/assets/version4/CodeBubbyAssets/带字邮票.svg";
+import WhiteStamp from "../../../assets/CodeBubbyAssets/纯白邮票-new.svg";
+import TextStamp from "../../../assets/CodeBubbyAssets/带字邮票-new.svg";
 
-const easeOutBack = (x) => {
-  const c1 = 1.70158;
-  const c3 = c1 + 1;
-  return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2);
+const easeOutBounce = (x) => {
+  // 0→0.4: 放大到100%
+  // 0.4→0.7: 缩到90%
+  // 0.7→1.0: 回到100%
+  if (x < 0.4) {
+    const t = x / 0.4;
+    return t;
+  } else if (x < 0.7) {
+    const t = (x - 0.4) / 0.3;
+    return 1 - 0.1 * t;
+  } else {
+    const t = (x - 0.7) / 0.3;
+    return 0.9 + 0.1 * t;
+  }
 };
 
 const StampGrid = ({ animationStep }) => {
   const canvasRef = React.useRef(null);
   const stampSize = 53;
+  const gridSpacing = stampSize - 3; // 负间距效果：每个格子间距减少3px（四边各-1.5px）
 
   React.useEffect(() => {
     const canvas = canvasRef.current;
@@ -65,13 +76,16 @@ const StampGrid = ({ animationStep }) => {
       offscreenOrangeRect.height = stampSize * dpr;
       const ctxOrange = offscreenOrangeRect.getContext("2d");
       ctxOrange.scale(dpr, dpr);
-      ctxOrange.fillStyle = "#FF6705";
+      ctxOrange.fillStyle = "#FF6400";
       ctxOrange.fillRect(0, 0, stampSize, stampSize);
 
-      const getStateImg = (waveType, dist) => {
-        if (dist === 0) return offscreenText;
+      const getStateImg = (waveType, x, y) => {
+        if (x === 0 && y === 0) return offscreenText;
         if (waveType === "stamp") {
-          return dist % 2 === 0 ? offscreenText : offscreenWhite;
+          // 棋盘格交错：用坐标奇偶决定图片类型
+          return (Math.abs(x) + Math.abs(y)) % 2 === 0
+            ? offscreenText
+            : offscreenWhite;
         }
         return offscreenOrangeRect;
       };
@@ -90,27 +104,31 @@ const StampGrid = ({ animationStep }) => {
 
         const cx = window.innerWidth / 2;
         const cy = window.innerHeight / 2;
-        const realSize = stampSize;
+        const realSize = gridSpacing; // 使用 gridSpacing 实现负间距效果
 
         const maxDistX = Math.ceil(cx / realSize);
         const maxDistY = Math.ceil(cy / realSize);
-        const maxDist = maxDistX + maxDistY;
+        const maxDist = Math.max(maxDistX, maxDistY);
 
-        for (let x = -maxDistX - maxDistY; x <= maxDistX + maxDistY; x++) {
-          for (let y = -maxDistY - maxDistX; y <= maxDistY + maxDistX; y++) {
-            const distance = Math.abs(x) + Math.abs(y);
-            if (distance > maxDist + 2) continue;
+        for (let x = -maxDist - 2; x <= maxDist + 2; x++) {
+          for (let y = -maxDist - 2; y <= maxDist + 2; y++) {
+            const ax = Math.abs(x);
+            const ay = Math.abs(y);
+            // 混合距离：切比雪夫 + 欧几里得，形成圆角方形扩散
+            const chebyshev = Math.max(ax, ay);
+            const euclidean = Math.sqrt(ax * ax + ay * ay);
+            const distance = chebyshev * 0.55 + euclidean * 0.45;
+            if (chebyshev > maxDist + 2) continue;
 
-            const delay = (distance - 1) * 0.05;
+            const delay = (distance - 1) * 0.1;
             const localTime = elapsed - delay;
             if (localTime < 0) continue;
 
             const waveIndex = Math.floor(localTime / waveInterval);
-            // 跳过中心位置，由单独的元素处理
-            if (x === 0 && y === 0) continue;
+            // 中心位置也由canvas绘制，确保像素级对齐
 
             const animTime = localTime - waveIndex * waveInterval;
-            let progress = animTime / 0.3;
+            let progress = animTime / 1.0;
             if (progress > 1) progress = 1;
 
             const currWaveType = waveTypes[waveIndex % waveTypes.length];
@@ -118,50 +136,56 @@ const StampGrid = ({ animationStep }) => {
               waveIndex > 0
                 ? waveTypes[(waveIndex - 1) % waveTypes.length]
                 : null;
-            const currImg = getStateImg(currWaveType, distance);
+            const currImg = getStateImg(currWaveType, x, y);
             const prevImg = prevWaveType
-              ? getStateImg(prevWaveType, distance)
+              ? getStateImg(prevWaveType, x, y)
               : null;
+
+            // 根据当前状态选择间距：橙色用 stampSize，白色用 gridSpacing
+            const currSpacing =
+              currWaveType === "orange" ? stampSize : gridSpacing;
+            const prevSpacing =
+              prevWaveType === "orange" ? stampSize : gridSpacing;
 
             if (progress >= 1) {
               ctx.save();
-              ctx.translate(cx + x * realSize, cy + y * realSize);
+              ctx.translate(cx + x * currSpacing, cy + y * currSpacing);
               ctx.globalAlpha = 1;
               ctx.drawImage(
                 currImg,
-                -stampSize / 2 - 1,
-                -stampSize / 2 - 1,
-                stampSize + 2,
-                stampSize + 2,
+                -stampSize / 2,
+                -stampSize / 2,
+                stampSize,
+                stampSize,
               );
               ctx.restore();
             } else {
               if (prevImg) {
                 ctx.save();
-                ctx.translate(cx + x * realSize, cy + y * realSize);
+                ctx.translate(cx + x * prevSpacing, cy + y * prevSpacing);
                 ctx.globalAlpha = 1 - progress;
                 ctx.drawImage(
                   prevImg,
-                  -stampSize / 2 - 1,
-                  -stampSize / 2 - 1,
-                  stampSize + 2,
-                  stampSize + 2,
+                  -stampSize / 2,
+                  -stampSize / 2,
+                  stampSize,
+                  stampSize,
                 );
                 ctx.restore();
               }
-              const currentScale = 0.2 + 0.85 * easeOutBack(progress);
-              const opacity = Math.min(1, progress * 1.5);
+              const currentScale = easeOutBounce(progress);
+              const opacity = Math.min(1, progress * 2.0);
               if (opacity > 0) {
                 ctx.save();
-                ctx.translate(cx + x * realSize, cy + y * realSize);
+                ctx.translate(cx + x * currSpacing, cy + y * currSpacing);
                 ctx.scale(currentScale, currentScale);
                 ctx.globalAlpha = opacity;
                 ctx.drawImage(
                   currImg,
-                  -stampSize / 2 - 1,
-                  -stampSize / 2 - 1,
-                  stampSize + 2,
-                  stampSize + 2,
+                  -stampSize / 2,
+                  -stampSize / 2,
+                  stampSize,
+                  stampSize,
                 );
                 ctx.restore();
               }
@@ -199,7 +223,7 @@ const StampGrid = ({ animationStep }) => {
   );
 };
 
-const StampVideo = () => {
+const SquareWave = () => {
   const [animationStep, setAnimationStep] = useState(0);
 
   useEffect(() => {
@@ -282,29 +306,9 @@ const StampVideo = () => {
             />
           </div>
         </div>
-
-        {/* 中心矢量SVG邮票 */}
-        {animationStep >= 7 && (
-          <div
-            className="center-stamp"
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              zIndex: 2,
-            }}
-          >
-            <img
-              src={TextStamp}
-              alt="Text Stamp"
-              style={{ width: "53px", height: "53px" }}
-            />
-          </div>
-        )}
       </div>
     </div>
   );
 };
 
-export default StampVideo;
+export default SquareWave;

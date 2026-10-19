@@ -100,12 +100,12 @@ export default function Header(props: any) {
         </div>
       )}
 
-      {/* <div
+      <div
         className="hover:opacity-70 transition-opacity duration-300 btn-particle font-[ABCDiatypeMono-Regular]"
         onClick={() => window.open("https://x.com/blitzo_xyz")}
       >
         <img className="w10px h10px" src={x} alt="" />
-      </div> */}
+      </div>
     </div>
   );
 }

@@ -25,8 +25,9 @@ export default function Privacy() {
         </h1>
 
         <p className="text-center text-14px text-gray-600 mb40px">
-          Effective Date: <span className="font-semibold">March 6, 2026</span>{" "}
-          Last Updated: <span className="font-semibold">March 6, 2026</span>
+          <span className="font-semibold"></span>Effective Date:{" "}
+          <span className="font-semibold">March 6, 2026</span> Last Updated:{" "}
+          <span className="font-semibold">March 6, 2026</span>
         </p>
 
         <div className="text-16px leading-relaxed">
@@ -37,16 +38,10 @@ export default function Privacy() {
             <p className="text-gray-800 leading-relaxed">
               Cerebral Labs, Inc. ("Cerebral Labs," "Blitzo," "we," "us," or
               "our") operates the Blitzo mobile application (the "App") and
-              related services (collectively, the "Service"). Blitzo is a
-              mobile app that turns everyday social moments into a fun,
-              competitive game with friends. Our first game, Bumb Bunny, allows
-              users to simply share a link via iMessage with friends and watch
-              the scramble begin. Players race to tap in, play quick skill
-              rounds, compete to claim points and level up. Every Bumb Bunny is
-              a small social moment: part game, part challenge, part bragging
-              rights. Whether you're partying with a group of friends or just
-              looking for a quick burst of fun, Bumb Bunny makes sharing moments
-              more interactive.
+              related services (collectively, the "Service"). Blitzo is an
+              e-commerce experience where users can discover new items and
+              compete to win it at a discount using in-app balance provided by
+              the platform.
             </p>
             <p className="text-gray-800 leading-relaxed mt12px">
               This Privacy Policy explains what personal information we collect
@@ -330,8 +325,8 @@ export default function Privacy() {
               </p>
               <p>
                 <span className="font-semibold">Right to Non-Discrimination.</span>{" "}
-                We will not discriminate against you for exercising your privacy
-                rights.
+                We will not discriminate against you for exercising your
+                privacy rights.
               </p>
               <p>
                 Categories of Personal Information Collected in the Past 12
@@ -395,9 +390,9 @@ export default function Privacy() {
               Cerebral Labs, Inc. (Blitzo) Email:{" "}
               <a
                 className="text-[#FF731C] font-semibold hover:underline"
-                href="mailto:support@playblitzo.com"
+                href="mailto:info@blitzo.xyz"
               >
-                support@playblitzo.com
+                info@blitzo.xyz
               </a>{" "}
               Mail: 228 Park Ave S PMB 333976, New York, NY 10003-1502
             </p>
@@ -421,3 +416,4 @@ export default function Privacy() {
     </div>
   );
 }
+

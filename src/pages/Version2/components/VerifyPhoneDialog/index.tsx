@@ -231,13 +231,13 @@ export default function VerifyPhoneDialog({
           </div>
 
           {/* 底部 logo */}
-          {/* <div className="flex-center mt37px">
+          <div className="flex-center mt37px">
             <img
               className="w158px "
               src={require("@/assets/version2/privivy.png")}
               alt=""
             />
-          </div> */}
+          </div>
         </div>
       </DialogContent>
     </Dialog>

@@ -13,7 +13,6 @@ export default function Register() {
       console.log(params);
       await refreshUser();
       console.log(user);
-      debugger;
     },
   });
   useLoginWithEmail();

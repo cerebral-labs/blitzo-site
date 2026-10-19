@@ -114,12 +114,12 @@ export default function LandingV2Login() {
           </div>
         )}
 
-        {/* <div
+        <div
           className="hover:opacity-70 transition-opacity duration-300 btn-particle font-[ABCDiatypeMono-Regular] cursor-pointer"
           onClick={() => window.open("https://x.com/blitzo_xyz")}
         >
           <img className="w10px h10px" src={x} alt="" />
-        </div> */}
+        </div>
       </div>
 
       {/* Waitlist 成功提示 */}

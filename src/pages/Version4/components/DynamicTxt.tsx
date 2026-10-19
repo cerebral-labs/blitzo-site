@@ -6,26 +6,27 @@ type Props = {
 };
 
 const items = [
-  { title: "A" },
-  { title: "B" },
-  { title: "C" },
-  { title: "D" },
-  { title: "E" },
-  { title: "F" },
-  { title: "G" },
-  { title: "H" },
-  { title: "I" },
-  { title: "J" },
-  { title: "K" },
-  { title: "L" },
-  { title: "M" },
-  { title: "N" },
-  { title: "O" },
-  { title: "P" },
-  { title: "Q" },
-  { title: "R" },
-  { title: "S" },
-  { title: "T" },
+  { title: "Anything" },
+  { title: "Anything" },
+  { title: "Anything" },
+  { title: "Anything" },
+  { title: "Anything" },
+  { title: "Treat" },
+  { title: "Shopping" },
+  { title: "Dining" },
+  { title: "travel" },
+  { title: "Anything" },
+  { title: "Friends" },
+  { title: "Coffee" },
+  { title: "Groceries" },
+  { title: "Movies" },
+  { title: "Anything" },
+  { title: "Anything" },
+  { title: "Anything" },
+  { title: "Anything" },
+  { title: "Anything" },
+  { title: "Anything" },
+  { title: "Anything" },
 ];
 
 export default function DynamicTxt({ activeIdx }: Props) {
@@ -47,16 +48,16 @@ export default function DynamicTxt({ activeIdx }: Props) {
   const variants = useMemo(() => {
     if (direction === "up") {
       return {
-        initial: { opacity: 0, rotateX: -70, y: 50 },
+        initial: { opacity: 0, rotateX: -70, y: 20 },
         animate: { opacity: 1, rotateX: 0, y: 0 },
-        exit: { opacity: 0, rotateX: 70, y: -50 },
+        exit: { opacity: 0, rotateX: 70, y: -20 },
       };
     }
 
     return {
-      initial: { opacity: 0, rotateX: 70, y: -50 },
+      initial: { opacity: 0, rotateX: 70, y: -20 },
       animate: { opacity: 1, rotateX: 0, y: 0 },
-      exit: { opacity: 0, rotateX: -70, y: 50 },
+      exit: { opacity: 0, rotateX: -70, y: 20 },
     };
   }, [direction]);
 

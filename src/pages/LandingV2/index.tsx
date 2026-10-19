@@ -27,57 +27,45 @@ export default function LandingV2() {
       {/* Header */}
       <div
         id="header"
-        className="box-border fixed top-0 left-0 w-full z-9999 text-[#f9f9f9] text-14px"
+        className="box-border px33px py20px sm:py30px flex items-center justify-between text-[#f9f9f9] fixed top-0 left-0 w-full text-14px z-9999"
       >
-        {/* Main row */}
-        <div className="px33px py20px sm:py30px flex items-center justify-between">
-          <div className="flex items-center gap-10px box-border">
-            <img className="w66px h17px" src={logo} alt="" />
-          </div>
-
-          <div
-            className="hover:opacity-70 transition-opacity duration-300 btn-particle font-[ABCDiatypeMono-Regular] cursor-pointer"
-            onClick={handleStart}
-          >
-            [LOGIN]
-          </div>
-
-          <div
-            className="hover:opacity-70 transition-opacity duration-300 btn-particle font-[ABCDiatypeMono-Regular] cursor-pointer"
-            onClick={handleStart}
-          >
-            [SIGNUP]
-          </div>
-
-          <div
-            className="hidden sm:block hover:opacity-70 transition-opacity duration-300 font-[ABCDiatypeMono-Regular] cursor-pointer"
-            onClick={() => navigate("/terms")}
-          >
-            [TERMS OF SERVICE]
-          </div>
-
-          <div
-            className="hidden sm:block hover:opacity-70 transition-opacity duration-300 font-[ABCDiatypeMono-Regular] cursor-pointer"
-            onClick={() => navigate("/privacy")}
-          >
-            [PRIVACY POLICY]
-          </div>
+        <div className="flex items-center gap-10px box-border">
+          <img className="w66px h17px" src={logo} alt="" />
         </div>
 
-        {/* Mobile-only second row for TOS and PP */}
-        <div className="sm:hidden flex items-center justify-center gap-30px px33px pb12px text-12px">
-          <div
-            className="hover:opacity-70 transition-opacity duration-300 font-[ABCDiatypeMono-Regular] cursor-pointer"
-            onClick={() => navigate("/terms")}
-          >
-            [TERMS OF SERVICE]
-          </div>
-          <div
-            className="hover:opacity-70 transition-opacity duration-300 font-[ABCDiatypeMono-Regular] cursor-pointer"
-            onClick={() => navigate("/privacy")}
-          >
-            [PRIVACY POLICY]
-          </div>
+        <div
+          className="hover:opacity-70 transition-opacity duration-300 btn-particle font-[ABCDiatypeMono-Regular] cursor-pointer"
+          onClick={handleStart}
+        >
+          [LOGIN]
+        </div>
+
+        <div
+          className="hover:opacity-70 transition-opacity duration-300 btn-particle font-[ABCDiatypeMono-Regular] cursor-pointer"
+          onClick={handleStart}
+        >
+          [SIGNUP]
+        </div>
+
+        <div
+          className="hidden sm:block hover:opacity-70 transition-opacity duration-300 font-[ABCDiatypeMono-Regular] cursor-pointer"
+          onClick={() => navigate("/terms")}
+        >
+          [TERMS OF SERVICE]
+        </div>
+
+        <div
+          className="hidden sm:block hover:opacity-70 transition-opacity duration-300 font-[ABCDiatypeMono-Regular] cursor-pointer"
+          onClick={() => navigate("/privacy")}
+        >
+          [PRIVACY POLICY]
+        </div>
+
+        <div
+          className="hover:opacity-70 transition-opacity duration-300 btn-particle font-[ABCDiatypeMono-Regular] cursor-pointer"
+          onClick={() => window.open("https://x.com/blitzo_xyz")}
+        >
+          <img className="w10px h10px" src={x} alt="" />
         </div>
       </div>
 

@@ -295,13 +295,13 @@ export default function RegistryDialog({
                   </div>
                 </div>
 
-                {/* <div className="mt49px flex-center ">
+                <div className="mt49px flex-center ">
                   <img
                     className="w158px"
                     src={require("@/assets/version2/privivy.png")}
                     alt=""
                   />
-                </div> */}
+                </div>
               </div>
               )}
             </div>

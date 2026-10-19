@@ -55,9 +55,9 @@ export default function Header() {
         <div className="hidden sm:block hover:opacity-70 transition-opacity duration-300" onClick={() => handleAction("terms")}>
           [TERMS OF SERVICE]
         </div>
-        {/* <div className="hover:opacity-70 transition-opacity duration-300 btn-particle" onClick={() => handleAction("x")}>
+        <div className="hover:opacity-70 transition-opacity duration-300 btn-particle" onClick={() => handleAction("x")}>
           <img className="w10px h10px" src={x} alt="" />
-        </div> */}
+        </div>
       </div>
     </div>
   );
